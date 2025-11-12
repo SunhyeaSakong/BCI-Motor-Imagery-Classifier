@@ -42,6 +42,12 @@ Bash
 pip install numpy scipy mne scikit-learn matplotlib
 
 🚀 Usage
+0. Data set up manually
+Go to the physionet site: https://physionet.org/content/eegmmidb/1.0.0/
+Download the eeg data with terminal : 
+                        wget -r -N -c -np https://physionet.org/files/eegmmidb/1.0.0/
+
+Once you have the data setup, you can run all the three modes. 
 
 The script BCI_Classifier.py (assuming you name your file this) can be run in three main modes:
 
@@ -50,7 +56,7 @@ The script BCI_Classifier.py (assuming you name your file this) can be run in th
 This mode runs the pipeline's cross-validation logic across a defined subset of subjects for all four common MI experiments.
 Bash
 
-python BCI_Classifier.py
+python Adding_parsing.py
 
 2. Training Mode (Cross-Validation & Plotting)
 
@@ -62,16 +68,44 @@ Trains the model on the specified ACTION_NUMBER and RUNS, performs 10-fold cross
 
 Bash
 
-# Example: Train on Subject 4, Runs 6, 10, and 14
-python BCI_Classifier.py 4 6 10 14 train
+# Example 1: Train on Subject 4, Runs 6, 10, and 14
+    : Subject 4 means the action : " Imagining both fists OR both feet"
+        python Adding_parsing.py 4 6 10 14 train
+
+# Example 2: Train on Subject 3, Runs 5, 9, and 13
+    : Subject 3 means the action : "put together both fists OR both feet"
+        python Adding_parsing.py 3 5 9 13 train
+
+# Exemple 3: Train on Subject 2, Runs 4, 8, and 12
+    : Subject 2 means the action : " Imagine closing the left fist OR the right fist"
+        python Adding_parsing.py 2 4 8 12 train
+
+# Exemple 4: Train on Subject 1, Runs 3, 7, and 11
+    : Subject 1 means the action : "Closing the left fist OR right fist"
+        python Adding_parsing.py 1 3 7 11 train
+
 
 3. Prediction Mode (Test Accuracy & Real-time Simulation)
 
 Trains the final model on 70% of the data and reports epoch-by-epoch predictions, final test accuracy, and latency for a real-time prediction simulation on the remaining 30% test set.
 Bash
 
-# Example: Predict on Subject 4, Runs 6, 10, and 14
-python BCI_Classifier.py 4 6 10 14 predict
+# Example 1: Predict on Subject 4, Runs 6, 10, and 14
+    :Subject 4 means the action : " Imagining both fists OR both feet" 
+        python Adding_parsing.py 4 6 10 14 predict
+
+# Example 2: Train on Subject 3, Runs 5, 9, and 13
+    : Subject 3 means the action : "put together both fists OR both feet"
+        python Adding_parsing.py 3 5 9 13 predict
+
+# Exemple 3: Train on Subject 2, Runs 4, 8, and 12
+    : Subject 2 means the action : " Imagine closing the left fist OR the right fist"
+        python Adding_parsing.py 2 4 8 12 predict
+
+# Exemple 4: Train on Subject 1, Runs 3, 7, and 11
+    : Subject 1 means the action : "Closing the left fist OR right fist"
+        python Adding_parsing.py 1 3 7 11 predict
+
 
 ⚙️ Customization (Optional Arguments)
 
