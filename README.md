@@ -1,3 +1,11 @@
+# 🧠 BCI-Motor-Imagery-Classifier: EEG Signal Processing...
+
+![BCI CSP Topomaps Visualization](assets/csp_topomap.png)
+
+---
+
+### ✨ Key Features
+...
 📄 README.md 
 
 🧠 BCI-Motor-Imagery-Classifier: EEG Signal Processing using Custom CSP/LDA
